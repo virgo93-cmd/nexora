@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "../components/layout/navbar";
 import Footer from "../components/layout/footer";
 import { usePathname } from "next/navigation";
+import Script from "next/script"; // Tambahin ini buat iklan
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,14 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col bg-[#0a0a0c] text-foreground selection:bg-indigo-500/30 selection:text-white overflow-x-hidden">
         
+        {/* IKLAN POPUNDER ADSTERRA - Muncul di semua halaman kecuali admin */}
+        {!isAdminPage && (
+          <Script 
+            src="https://pl29406804.profitablecpmratenetwork.com/a8/7d/66/a87d662880d0ed02124eb64e1e3fc2f1.js" 
+            strategy="afterInteractive" 
+          />
+        )}
+
         {/* Navbar HANYA muncul jika bukan admin */}
         {!isAdminPage && <Navbar />}
 
@@ -45,11 +54,13 @@ export default function RootLayout({
         {!isAdminPage && (
           <>
             <aside className="hidden 2xl:flex fixed left-4 top-32 bottom-20 w-[160px] items-center justify-center z-30">
-              {/* Ruang stand-by untuk script CPA */}
+              {/* Ruang stand-by untuk banner CPA nantinya */}
+              <div className="w-full h-full border border-dashed border-white/10 flex items-center justify-center text-[10px] text-white/20">AD SPACE</div>
             </aside>
 
             <aside className="hidden 2xl:flex fixed right-4 top-32 bottom-20 w-[160px] items-center justify-center z-30">
-              {/* Ruang stand-by untuk script CPA */}
+              {/* Ruang stand-by untuk banner CPA nantinya */}
+              <div className="w-full h-full border border-dashed border-white/10 flex items-center justify-center text-[10px] text-white/20">AD SPACE</div>
             </aside>
           </>
         )}
