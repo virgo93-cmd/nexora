@@ -30,32 +30,38 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
-      <body className="min-h-screen flex flex-col bg-[#0a0a0c] text-foreground selection:bg-indigo-500/30 selection:text-white overflow-x-hidden">
+      <head>
+        {/* SEO MANUAL - BIAR TETEP SATU FILE */}
+        <title>Nexora | Discover the Best AI Tools Directory 2026</title>
+        <meta name="description" content="Explore 100+ hand-picked AI tools. The ultimate directory for productivity and business powered by AI." />
+        <meta name="keywords" content="AI Tools, Best AI Directory, Artificial Intelligence, Nexora AI" />
         
-        {/* IKLAN POPUNDER - Pindah ke posisi paling atas body agar cepat ter-load */}
+        {/* Open Graph buat Facebook/Meta Ads */}
+        <meta property="og:title" content="Nexora - Best AI Tools Directory" />
+        <meta property="og:description" content="Find the perfect AI tool for your needs." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nexora-ten-mu.vercel.app/" />
+
+        {/* IKLAN POPUNDER */}
         {!isAdminPage && (
           <Script 
             src="https://pl29406804.profitablecpmratenetwork.com/a8/7d/66/a87d662880d0ed02124eb64e1e3fc2f1.js" 
             strategy="afterInteractive" 
           />
         )}
-
-        {/* Navbar */}
+      </head>
+      <body className="min-h-screen flex flex-col bg-[#0a0a0c] text-foreground selection:bg-indigo-500/30 selection:text-white overflow-x-hidden">
+        
         {!isAdminPage && <Navbar />}
 
-        {/* Gradasi Navbar */}
         {!isAdminPage && (
           <div className="fixed top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0a0a0c] via-[#0a0a0c]/80 to-transparent z-[40] pointer-events-none" />
         )}
 
-        {/* KOTAK AD SPACE SUDAH DIHAPUS TOTAL AGAR WEB LOOK PREMIUM */}
-
-        {/* Konten Utama */}
         <main className={`flex-1 relative z-10 flex flex-col ${!isAdminPage ? 'pt-16' : ''}`}>
           {children}
         </main>
 
-        {/* Footer */}
         {!isAdminPage && <Footer />}
         
       </body>
