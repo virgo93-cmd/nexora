@@ -42,6 +42,9 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://nexora-ten-mu.vercel.app/" />
 
+        {/* --- VERIFIKASI MONETAG (Langkah 2 Selesai) --- */}
+        <meta name="monetag" content="c46d9ff6b068c7b9672ff5213b5b3907" />
+
         {/* IKLAN POPUNDER */}
         {!isAdminPage && (
           <Script 
