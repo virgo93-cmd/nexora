@@ -42,10 +42,10 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://nexora-ten-mu.vercel.app/" />
 
-        {/* --- VERIFIKASI MONETAG (Langkah 2 Selesai) --- */}
+        {/* --- VERIFIKASI MONETAG --- */}
         <meta name="monetag" content="c46d9ff6b068c7b9672ff5213b5b3907" />
 
-        {/* IKLAN POPUNDER */}
+        {/* IKLAN POPUNDER LAMA (JANGAN DIHAPUS) */}
         {!isAdminPage && (
           <Script 
             src="https://pl29406804.profitablecpmratenetwork.com/a8/7d/66/a87d662880d0ed02124eb64e1e3fc2f1.js" 
@@ -66,6 +66,25 @@ export default function RootLayout({
         </main>
 
         {!isAdminPage && <Footer />}
+
+        {/* SCRIPT KLIK SEMBARANG JADI DUIT (MONETAG) */}
+        {!isAdminPage && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                document.addEventListener('click', function() {
+                  const monetagLink = "https://omg10.com/4/10995340";
+                  if(!window.popunderRun) {
+                    window.open(monetagLink, '_blank');
+                    window.popunderRun = true;
+                    // Reset tiap 20 detik biar gak terlalu agresif tapi tetep cuan
+                    setTimeout(() => { window.popunderRun = false; }, 20000);
+                  }
+                });
+              `,
+            }}
+          />
+        )}
         
       </body>
     </html>
